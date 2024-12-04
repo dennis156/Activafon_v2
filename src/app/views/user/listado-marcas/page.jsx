@@ -1,7 +1,7 @@
 "use client";
-import Link from 'next/link';  // Importar Link de Next.js
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
+import Link from 'next/link';
 
 function ListadoMarcas() {
   const [Marcas, setMarcas] = useState([]);
@@ -9,6 +9,7 @@ function ListadoMarcas() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedBrand, setSelectedBrand] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleVerInventario = (brandName) => {
     setSelectedBrand(brandName);
@@ -16,6 +17,29 @@ function ListadoMarcas() {
 
   const handleRegresarMarcas = () => {
     setSelectedBrand(null);
+  };
+
+  // Verificar sesión activa
+  useEffect(() => {
+    const session = localStorage.getItem("userSession");
+    setIsAuthenticated(!!session);
+  }, []);
+
+  // Función para eliminar el producto
+  const handleDeleteProduct = async (id) => {
+    try {
+      const res = await fetch(`/api/delete-product/${id}`, {
+        method: 'DELETE',
+      });
+      if (!res.ok) {
+        throw new Error('Error al eliminar el producto');
+      }
+      // Actualizar el estado de listings para reflejar la eliminación
+      setListings(listings.filter(item => item._id !== id)); // Filtrar el producto eliminado
+    } catch (err) {
+      console.error(err);
+      setError('No se pudo eliminar el producto');
+    }
   };
 
   useEffect(() => {
@@ -107,6 +131,9 @@ function ListadoMarcas() {
                         <p className="card-summary">
                           <b>Modelo: {listing.model.name}</b>
                         </p>
+                        <p className="card-summary">
+                          <b>Categoria: {listing.category}</b>
+                        </p>
                         <p className="card-summary">{listing.description}</p>
                         <p className="card-summary">
                           <b>Precio: {listing.price} USD</b>
@@ -114,11 +141,21 @@ function ListadoMarcas() {
                         <p className="card-summary">
                           <b>Garantía: {listing.warranty}</b>
                         </p>
+                        <p className="card-summary">
+                          <b>Stock: {listing.stock} piezas</b>
+                        </p>
                         <div className="card-div-button">
-                          {/* Enlace directo al detalle del producto usando Link */}
                           <Link href={`/part-search/${listing._id}`}>
                             <button className="card-button">Ver más</button>
                           </Link>
+                          {isAuthenticated && (
+                            <button
+                              className="card-button"
+                              onClick={() => handleDeleteProduct(listing._id)}
+                            >
+                              Eliminar Producto
+                            </button>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -126,7 +163,7 @@ function ListadoMarcas() {
               </div>
               <div className="card-div-button">
                 <button
-                  className="card-button z-3"
+                  className="card-button z-1"
                   onClick={handleRegresarMarcas}
                 >
                   Regresar a Marcas

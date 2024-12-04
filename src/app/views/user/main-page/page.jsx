@@ -30,7 +30,7 @@ export default function MainPage() {
           <div className="Title-Container col-md-12 color-white">
             <h1 className="fw-bold status-badge Title-Piezas">Activafon</h1>
           </div>
-          <div className="d-flex flex-wrap">
+          {/* <div className="d-flex flex-wrap">
             <div className="col-md-12 col-sm-12 col-12">
               <p className="color-white">
                 Jelly sweet roll jelly beans biscuit pie macaroon chocolate donut.
@@ -38,7 +38,7 @@ export default function MainPage() {
                 ...
               </p>
             </div>
-          </div>
+          </div> */}
 
           {/* Buscador para piezas */}
           <PartSearch />

@@ -12,6 +12,16 @@ const nextConfig = {
         },
       ],
     },
+    webpack(config, { isServer }) {
+      if (!isServer) {
+        config.node = {
+          ...config.node,
+          fs: 'empty',  // Excluye módulos no compatibles como 'fs' y 'child_process'
+          child_process: 'empty',
+        };
+      }
+      return config;
+    },
 };
 
 export default nextConfig;

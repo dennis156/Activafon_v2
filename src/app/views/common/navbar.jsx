@@ -43,18 +43,18 @@ export default function Navbar() {
                 <a
                   className="nav-link active color-white"
                   aria-current="page"
-                  href="http://localhost:3000/#"
+                  href="/#"
                 >
                   Inicio
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link color-white" href="http://localhost:3000/#Marcas">
+                <a className="nav-link color-white" href="/#Marcas">
                   Marcas
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link color-white" href="http://localhost:3000/#mision">
+                <a className="nav-link color-white" href="/#mision">
                   Mision
                 </a>
               </li>

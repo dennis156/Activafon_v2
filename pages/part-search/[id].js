@@ -57,8 +57,8 @@ export default function PartDetails() {
           <div><strong>Precio:</strong> {listing.price} USD</div>
           <div><strong>Garantía:</strong> {listing.warranty}</div>
           <div><strong>Stock disponible:</strong> {listing.stock}</div>
-          <div><strong>Proveedor:</strong> {listing.supplier.name}</div>
-          <div><strong>Contacto del proveedor:</strong> {listing.supplier.contact_info.phone}, {listing.supplier.contact_info.email}</div>
+          {/* <div><strong>Proveedor:</strong> {listing.supplier.name || "NA"}</div> */}
+          {/* <div><strong>Contacto del proveedor:</strong> {listing.supplier.contact_info.phone}, {listing.supplier.contact_info.email}</div> */}
         </div>
         {/* <button className="buy-button">Comprar</button> */}
       </div>

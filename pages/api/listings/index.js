@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     const listings = await db
       .collection('db_info') // Nombre de la colección
       .find({})               // Aquí podrías agregar filtros si es necesario
-      .limit(10)              // Limitar a los primeros 10 registros
+      // .limit(10)              // Limitar a los primeros 10 registros
       .toArray();            // Convertir los resultados en un arreglo
 
     // Si la consulta fue exitosa, respondemos con los datos
