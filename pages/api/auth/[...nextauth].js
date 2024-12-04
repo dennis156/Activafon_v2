@@ -60,7 +60,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoClient } from "mongodb";
 import bcrypt from "bcryptjs";
 
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://admin:%23Ingenierochingon27@reparaphone.yn3bo.mongodb.net/Reparaphone_data";
 
 export default NextAuth({
   providers: [
