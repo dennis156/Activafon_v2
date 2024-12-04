@@ -11,7 +11,7 @@ function PartSearch() {
   // Carga inicial de los datos desde el endpoint
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3000/api/listings")
+    fetch("/api/listings")
       .then((res) => res.json())
       .then((data) => {
         console.log("Datos recibidos:", data); // Verifica qué datos estás recibiendo
