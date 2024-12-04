@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: false,
     experimental: {
-      turbo: false, // Desactiva TurboPack
+      turbo: true, // Desactiva TurboPack
   },
     images: {
       remotePatterns: [
@@ -11,16 +11,6 @@ const nextConfig = {
           hostname: "**", // Permite cualquier dominio
         },
       ],
-    },
-    webpack(config, { isServer }) {
-      if (!isServer) {
-        config.node = {
-          ...config.node,
-          fs: 'empty',  // Excluye módulos no compatibles como 'fs' y 'child_process'
-          child_process: 'empty',
-        };
-      }
-      return config;
     },
 };
 

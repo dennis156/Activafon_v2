@@ -40,23 +40,23 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link active color-white"
                   aria-current="page"
                   href="/#"
                 >
                   Inicio
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link color-white" href="/#Marcas">
+                <Link className="nav-link color-white" href="/#Marcas">
                   Marcas
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link color-white" href="/#mision">
+                <Link className="nav-link color-white" href="/#mision">
                   Mision
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 {isAuthenticated ? (
