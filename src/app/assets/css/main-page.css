@@ -1,0 +1,480 @@
+:root {
+    --background: #ffffff;
+    /* --foreground: #171717; */
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* --background: #0a0a0a; */
+      --foreground: #ededed;
+    }
+  }
+  
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    background-color: #000;
+  }
+  
+  body {
+    /* color: var(--foreground); */
+    /* background: var(--background); */
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  /* 
+  @media (prefers-color-scheme: dark) {
+    html {
+      color-scheme: dark;
+    }
+  } */
+  
+  /* Grid de las Cards */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2rem;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 4rem;
+  }
+  .Container-Second-Image{
+    background-color: #000000b9;
+    background-image: url(../img/second-image.jpeg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 90vh !important;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin: 0;
+    min-height: 100vh !important;
+  }
+  
+  .Container-Second-Image::after {
+    content: '';
+    position: absolute;
+    bottom: -100vh;
+    left: 0;
+    right: 0;
+    height: 50%; /* Ajusta el tamaño del desvanecimiento */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(0, 0, 0)); /* El color final depende del fondo */
+  }
+  /* Card Principal */
+  .card {
+    background-color: #81818159;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    gap: 20px;
+    max-width: 22rem;
+    padding: 2rem;
+    z-index: 20;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Imagen de la Card */
+  .card-image {
+    object-fit: cover;
+    width: fit-content;
+    height: 150px;
+    object-position: center center;
+  }
+  
+  /* Contenido de la Card */
+  .card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: white;
+    /* color: #333; */
+  }
+  
+  .card-summary {
+    font-size: 1rem;
+    /* color: #555; */
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  /* Botón de la Card */
+  .card-button {
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+  }
+  
+  .card-button:hover {
+    background-color: #005bb5;
+  }
+  
+  .Main-cards-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content:center;
+    background-position: center center center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+  .main-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%; /* Ajusta el tamaño del desvanecimiento */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(0, 0, 0)); /* El color final depende del fondo */
+  }
+  
+  
+  .status-bar {
+    /* filter:opacity(0.5); */
+    background: rgba(0, 0, 0, 0.644);
+    position: fixed;
+    background-size: 200% 200%;
+    font-weight: bold;
+    width:100% !important;
+    padding: 0.8rem 1.2rem;
+    /* border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px; */
+    text-align: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: gradientShift 5s ease-in-out infinite;
+    margin: 0;
+    z-index: 20000;
+  }
+  
+    @keyframes gradientAnimation {
+      0% {
+          background-position: 0% 50%;
+      }
+      100% {
+          background-position: 100% 50%;
+      }
+  }
+  @keyframes gradientShift {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+  .main-image{
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    height: 100%;
+    background-repeat: no-repeat !important;
+    background-size: cover !important; /* Asegura que la imagen cubra todo el área */
+    background-position: center center !important;
+    background: linear-gradient(45deg, #0d131a, #041529, #2f3640);
+    background-image: url('../img/main-image.jpeg');
+    margin: 0;
+    min-height: 100vh;
+    padding-top:4rem ;
+  }
+  .color-white{
+    color: white !important;
+  }
+  .img-fluid{
+      filter: brightness(1) invert(0);
+      mix-blend-mode: multiply;
+      background-color: #1c2833;
+  }
+  
+  @media (max-width: 742px) {
+    /* Estilos para pantallas de 742 píxeles o menos */
+    .card-grid {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin: 0;
+        flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 742px){
+    .card{
+      max-width: 20rem !important;
+      width: 100%;
+    }
+  }
+  
+  .btn-add {
+    background-color: #ffffff; /* Verde típico de acciones de agregar */
+    border: none;
+    color: #000;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%; /* Redondeado completo */
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center; /* Centra el ícono y el texto verticalmente */
+    justify-content: center;
+    gap: 10px; /* Espacio entre el ícono y el texto */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+  }
+  .btn-add:hover {
+    background-color: #ffffff88; /* Color más oscuro en hover */
+    transform: translateY(-3px);
+  }
+  .btn-add:active {
+    transform: translateY(0);
+    background-color: #ffffff; /* Aún más oscuro en clic */
+  }
+  .btn-add i {
+    font-size: 20px; /* Tamaño del ícono */
+  }
+  .btn-add span {
+    font-size: 16px;
+  }
+  .piezas-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 2rem;
+  }
+  .Title-Piezas {
+    color: white; /* Color del texto */
+    text-align: center; /* Alineación centrada */
+    font-size: 2.8rem; /* Tamaño de fuente */
+    font-family: 'Montserrat', sans-serif; /* Cambia la familia de la fuente */
+    padding-bottom: 2rem; /* Espacio en la parte inferior */
+    animation: fadeIn 1s ease-in-out, slideIn 0.5s ease-in-out forwards; /* Animaciones */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra más suave */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    background: linear-gradient(45deg, #ffb3b3, #ffe6b3, #b3e0ff); /* Gradiente de fondo más claro */
+    background-clip: text; /* Recortar el fondo al texto (solo para webkit) */
+    -webkit-text-fill-color: transparent; /* Relleno del color de texto transparente */
+  }
+  /* Animación de desvanecimiento */
+  @keyframes fadeIn {
+    from {
+      opacity: 0; /* Comienza invisible */
+    }
+    to {
+      opacity: 1; /* Termina visible */
+    }
+  }
+  /* Animación de desplazamiento */
+  @keyframes slideIn {
+    0% {
+      transform: translateY(-20px); /* Comienza un poco más arriba */
+      opacity: 0; /* Comienza invisible */
+    }
+    100% {
+      transform: translateY(0); /* Termina en su posición original */
+      opacity: 1; /* Termina visible */
+    }
+  }
+  
+  .card-div-button{
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    padding-top: 2rem;
+  }
+  .mision-container{
+    align-items: normal;
+    text-align: left;
+    width: 80rem;
+    min-height: 100vh;
+  }
+  
+  ::selection {
+    background-color: rgba(255, 255, 255, 0.3); /* Blanco con transparencia */
+    color: #fff; /* Cambia el color del texto si lo deseas */
+  }
+  
+  
+  body {
+    background-color: #121212; /* Color de fondo oscuro */
+    color: #ffffff; /* Color del texto blanco */
+    font-family: 'Arial', sans-serif; /* Fuente moderna */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .modal-content{
+    background-color: #161616;
+  }
+  
+  .main-image {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Asegura que el contenido ocupe el espacio completo */
+  }
+  
+  .search-container {
+    margin: 20px 0;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .search-container input {
+    border-radius: 25px; /* Bordes redondeados para el input */
+    padding: 10px;
+    border: 1px solid #444; /* Borde más claro */
+    background-color: #1e1e1e; /* Fondo oscuro del input */
+    color: #ffffff; /* Texto blanco en el input */
+    transition: border-color 0.3s;
+  }
+  
+  .search-container input:focus {
+    border-color: #bb86fc; /* Color de borde al enfocar */
+    outline: none;
+  }
+  
+  .gallery-container {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .gallery-title {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  
+  .gallery-item {
+    width: 150px;
+    height: 150px;
+    background-color: #333;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .gallery-item:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+  }
+  
+  .testimonials-container {
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 30px;
+  }
+  
+  .testimonials-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    animation: slideIn 0.5s forwards;
+  }
+  
+  .footer {
+    background-color: #1e1e1e;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer p {
+    margin: 0;
+  }
+  
+  /* Animaciones */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  
+  .form-control::placeholder {
+    color: #888; /* Color del placeholder por defecto */
+    opacity: 1; /* Asegura que sea completamente opaco */
+  }
+  
+  .form-control:focus::placeholder {
+    color: #000; /* Color del placeholder cuando el input está enfocado */
+  }
+  
+  .form-control:active::placeholder {
+    color: #000; /* Color del placeholder cuando el input está activo */
+  }

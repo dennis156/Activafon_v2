@@ -1,0 +1,72 @@
+/* Font family y estilos base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer {
+    background-color: #1a1a1a; /* Fondo oscuro */
+    color: #e0e0e0; /* Texto claro */
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px 0;
+}
+
+.footer-title {
+    font-size: 1.4rem;
+    color: #f0f0f0; /* Un color ligeramente más claro para los títulos */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.footer-icon {
+    background-color: #333;
+    color: #e0e0e0;
+    padding: 10px;
+    border-radius: 50%;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    min-width: 45px;
+}
+
+.footer-icon:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}

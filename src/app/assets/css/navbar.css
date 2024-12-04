@@ -1,0 +1,15 @@
+.navbar {
+    transition: background-color 0.3s ease;
+}
+
+.navbar-scrolled {
+    background-color: #000 !important; /* Fondo negro al hacer scroll */
+}
+
+.color-white {
+    color: #fff !important;
+}
+
+.navbar-brand {
+    color: #fff !important;
+}
